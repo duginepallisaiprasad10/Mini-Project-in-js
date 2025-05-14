@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,15 +15,13 @@ body{
 .skill{
     width: 180px;
     height: 180px;
-    /* background-color: cornflowerblue; */
     position: relative;
-    /* position: fixed; */
+
 }
 .outer{
     height: 160px;
     width: 160px;
     border-radius: 50%;
-    /* border: 1px solid red; */
     box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
                 6px -6px 10px -1px rgba(255,255,255,0.7);                    ;
     padding: 20px;    
@@ -45,7 +43,6 @@ body{
 #number{
     font-weight: 600;
     color: #555;
-    /* text-align: center; */
 }
 circle{
     fill: none;
@@ -71,7 +68,6 @@ circle{
 .head{
     text-align: center;
     margin-bottom: 300px;
-    /* margin-left: 200px; */
     position: fixed;
 
-}
+} */
