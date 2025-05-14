@@ -1,0 +1,69 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: cornflowerblue;
+}
+
+#myH1 {
+    font-size: 40px;
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 1px solid; */
+    padding: 30px;
+    background-color: rgb(174, 200, 222);
+    border-radius: 10px;
+    box-shadow: 1px 2px 5px;
+}
+
+#display {
+    font-size: 80px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+#controls {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#controls button {
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 10px;
+    min-width: 100px;
+}
+
+#startBtn {
+    background-color: rgb(14, 254, 14);
+    cursor: pointer;
+}
+
+#startBtn:hover {
+    background-color: rgb(58, 218, 58);
+}
+
+#stopBtn {
+    background-color: rgb(255, 0, 0);
+    cursor: pointer;
+}
+
+#stopBtn:hover {
+    background-color: rgb(209, 11, 11);
+}
+
+#resetBtn {
+    background-color: skyblue;
+    cursor: pointer;
+}
+
+#resetBtn:hover {
+    background-color: rgb(33, 183, 243);
+}

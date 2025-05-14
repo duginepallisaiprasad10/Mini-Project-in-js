@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+ <!-- <div class="container"> 
+    <p>Enter Text or URL</p>
+    <input type="text" placeholder="Text or URL" class="input" id="qrText"> 
+    <div id="img">
+        <img src="" id="qrImg">
+    </div>
+     <button type="button" class="btn" onclick="GenerateQR()">Generate QR Code</button>
+ </div>
+
+ <script>
+    let img = document.getElementById("img");
+    let qrImg = document.getElementById("qrImg");
+    let qrText = document.getElementById("qrText");
+
+
+function GenerateQR(){
+
+    if (qrText.value.length === 0) {
+        alert("Please enter text or a URL.");
+        // img.classList.add("show-img"); 
+        qrText.classList.add("error");
+        setTimeout(() => {
+            qrText.classList.remove("error");
+        }, 1000);
+        return;
+    }
+    
+    qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value
+    img.classList.add("show-img");
+
+}
+</script> -->
+
+<div class="container"> 
+    <p>Enter Text or URL</p>
+    <input type="text" placeholder="Text or URL" class="input" id="qrText"> 
+
+    <div id="img">
+        <img src="" id="qrImg">
+    </div>
+     <button type="button" class="btn" onclick="GenerateQR()">Generate QR Code</button>
+ </div>
+
+ <script>
+    let img = document.getElementById("img");
+    let qrImg = document.getElementById("qrImg");
+    let qrText = document.getElementById("qrText");
+
+
+function GenerateQR(){
+
+    if (qrText.value.length === 0) {
+        alert("Please enter text or a URL.");
+        // img.classList.add("show-img"); 
+        qrText.classList.add("error");
+        setTimeout(() => {
+            qrText.classList.remove("error");
+        }, 1000);
+        return;
+    }
+    
+    qrImg.src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" + qrText.value
+    img.classList.add("show-img");
+
+}
+</script>
+</body>
+</html>

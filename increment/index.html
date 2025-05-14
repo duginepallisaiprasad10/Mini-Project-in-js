@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <h1 class="head">Hello Namaste Guru!</h1>
+    <!-- <span class="zero">0</span> -->
+     <label id="countlabel">0</label>
+    <br>
+    <br>
+    <div id="button-container">
+    <button id="Decrease-btn" class="btns">Decrease</button>
+    <button id="Restart-btn"  class="btns">Restart</button>
+    <button id="Increase-btn" class="btns">Increase</button>
+</div>
+    
+<script>
+
+let Decrease =document.getElementById("Decrease-btn");
+let Restart =document.getElementById("Restart-btn");
+let Increase =document.getElementById("Increase-btn");
+let labelcount=document.getElementById("countlabel");
+
+let count = 0;
+
+// Increase.onclick=function(){
+//     count++;
+//     countlabel.textContent = count;
+// }
+//  Decrease.onclick=function(){
+//     count--;
+//     countlabel.textContent=count;
+// }
+// Restart.onclick=function(){
+//     count =0;
+//     countlabel.textContent=count;
+// }
+ Increase.onclick=function(){
+    count++;
+    countlabel.textContent=count;  
+ }
+ Decrease.onclick=function(){
+    count--;
+    countlabel.textContent=count;
+ }
+ Restart.onclick=function(){
+    count=0;
+    countlabel.textContent=count;
+ }
+
+
+
+
+
+
+
+</script>
+
+    
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-color: #2b1d0f;
+    color: white;
+}
+header nav{
+    background-color: #212121;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+header nav h1{
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+header nav form{
+    display: flex;
+    justify-content: center;
+}
+form input[type="text"]{
+    flex-grow: 1;
+    margin-right: 10px;
+}
+form input[type="text"],button[type="submit"]{
+   border: none;
+   font-size: 18px;
+   padding: 10px;
+   border-radius: 5px;
+}
+form button[type="submit"]{
+    background-color: #f44336;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.25 ease-in-out;
+}
+form button[type="submit"]:hover , 
+.recipe button:hover,
+.recipe-close-btn:hover{
+    background-color: #f3766d;
+}
+/* main section */
+.recipe-container{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 40px;
+    width: 80%;
+    margin: 10px auto;
+    padding: 20px;
+    place-items: center;
+}
+
+.recipe{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    color: #000;
+    border-radius: 8px;
+    box-shadow:0 5px 10px rgba(78,73,73,0.1), -5px -5px 10px rgba(34,34,34,0.5) ;
+    cursor: pointer;
+    max-width: 350px;
+    transition: transform 0.3s ease-in-out;
+}
+.recipe:hover{
+    transform: scale(1.05);
+}
+.recipe img{
+    height: 300px;
+}
+.recipe h3{
+    font-size: 24px;
+}
+.recipe p{
+    font-size: 20px;
+    color: #4a4a4a;
+    margin: 5px 0;
+    font-weight: 300px;
+}
+.recipe span{
+    font-weight: bold;
+}
+.recipe button{
+    font-size: 20px;
+    font-weight: 600px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin: 18px auto;
+    background-color: #f44336;
+    color: white;
+}
+/* Recipe details */
+ .recipe-details{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #694c2f;
+    -webkit-transform: translate(-50%,-50%);
+    border-radius: 12px;
+    width: 40%;
+    height: 60%;
+    font-size: 20px;
+    transition: all 0.5s ease-in-out;
+    overflow-y: scroll;
+}
+
+/* adding scrool bar to recipe details */
+
+.recipe-details::-webkit-scrollbar{
+    width: 10px;
+}
+.recipe-details::-webkit-scrollbar-thumb{
+    background: #b5b5ba;
+    border-radius: 16px;
+    --webkit-border-radius:16px;
+}
+.recipe-details-content{
+    padding: 30px;
+}
+.recipeName{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 20px;
+    /* color: #f44336; */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.ingredientList{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.recipeInstructions p{
+    line-height: 30px;
+    white-space: pre-line;
+    margin-top: 20px;
+}
+.recipe-close-btn{
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color:#f44336;
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body::-webkit-scrollbar{
+    width: 16px;
+}
+body::-webkit-scrollbar-thumb{
+    background: #b5b5ba;
+}
+body::-webkit-scrollbar-track{
+    background: #ebebeb;
+}
+
+@media screen  and (max-width:600px){
+    header nav{
+        flex-direction: column;
+    }
+    header nav form{
+        width: 80%;
+        margin-top: 20px;   
+    }
+    
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>RECIPE APP</h1>
+            <form>
+                <input type="text" placeholder="search for recipes" class="searchBox">
+                <button type="submit" class="searchBtn">Search</button>
+            </form>
+        </nav>
+    </header>
+         
+    <main>
+        <section>
+            <div class="recipe-container">
+                <h2>Search Your favourite recipes...    </h2>
+            </div>
+            <div class="recipe-details">
+                <button type="button" class="recipe-close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="recipe-details-content"></div>
+
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <script src="./scrit.js">
+        const searchBox=document.querySelector('.searchBox');
+const searchBtn=document.querySelector('.searchBtn');
+const recipeContainer=document.querySelector('.recipe-container');
+const recipeDetailsContent = document.querySelector('.recipe-details-content');
+const recipeCloseBtn = document.querySelector('.recipe-close-btn');
+
+
+//function to get recipes
+const fecthRecipes = async (query) =>{
+           recipeContainer.innerHTML="<h2>Fetching recipes...<h2>";
+           try{
+           const data= await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+           const response = await data.json();
+
+           recipeContainer.innerHTML="";
+
+           response.meals.forEach(meal => {
+            const recipeDiv=document.createElement('div');
+            recipeDiv.classList.add("recipe");
+            recipeDiv.innerHTML= `
+                   <img src="${meal.strMealThumb}">
+                   <h3>${meal.strMeal}</h3>
+                   <p><span>${meal.strArea}<span> Dish</p>
+                   <p>Belongs to <span>${meal.strCategory}<span> Cateogry</p>
+            `
+            const button=document.createElement('button');
+            button.textContent="View Recipe"
+            recipeDiv.appendChild(button);
+
+            // adding addEventListener to recipe button
+
+            button.addEventListener('click', () => {
+                openRecipePopup(meal);
+            });
+
+            recipeContainer.appendChild(recipeDiv);
+           });
+        }
+        catch(error){
+            recipeContainer.innerHTML=`<h2>Error in fetching recipes</h2>`
+        }
+}
+//function to fetch ingrediants and measurements
+const fetchIngredients = (meal) =>{
+    let ingredientsList ="";
+    for(let i=1; i<20; i++){
+        const ingredient = meal[`strIngredient${i}`];
+        if(ingredient){
+            const measure = meal[`strMeasure${i}`];
+            ingredientsList += `<li>${measure} ${ingredient}</li>`
+        }
+        else{
+            break;
+        }
+    }
+    return ingredientsList;
+
+}
+const openRecipePopup = (meal) =>{
+    recipeDetailsContent.innerHTML=`
+              <h2 class="recipeName">${meal.strMeal}</h2>
+              <h3>Ingrediants:</h3>
+              <ul class="ingredientList">${fetchIngredients(meal)}</ul>
+              <div class="recipeInstructions">
+                 <h3>Instructions:</h3>
+                 <p>${meal.strInstructions}</p>
+              </div>   
+    `
+    recipeDetailsContent.parentElement.style.display="block";
+
+}
+
+recipeCloseBtn.addEventListener("click",()=>{
+              recipeDetailsContent.parentElement.style.display= "none";
+});
+
+searchBtn.addEventListener('click',(e) =>{
+    e.preventDefault();
+    const searchInput = searchBox.value.trim();
+    if(!searchInput){
+        recipeContainer.innerHTML=`<h2>TYpe the meal in the search box?</h2>`
+    }
+    fecthRecipes(searchInput);
+});
+
+
+    </script>
+</body>
+</html>

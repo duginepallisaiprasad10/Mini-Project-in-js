@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2> Generate a <br> <span class="span"> Random password</span></h2>
+    <div class="text">
+        <input type="text" placeholder="Enter Your password" id="password">
+        <img src="./imges/copy.png" id="copyicon">
+        <br>
+    </div>
+
+        <button class="password"><img  src="./imges/generate.png">Generate password</button>
+        
+    </div>
+
+      <script>
+         const passwordBox = document.getElementById("password");
+        const length= 14;
+
+        const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const lowerCase = "abcdefghijklmnopqrstvuwxyz";
+        const numbers = "0123456789";
+        const symbols ="!@#$%^&*(){}|[]?/,.;+=";
+
+        const allChars = upperCase + lowerCase + numbers + symbols;
+
+
+        function createPassword(){
+            let password ="";
+            password += upperCase[Math.floor(Math.random() * upperCase.length)];
+            password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+            password += numbers[Math.floor(Math.random() * numbers.length)];
+            password += symbols[Math.floor(Math.random() * symbols.length)];
+
+            while(length > password.length){
+                password += allChars[Math.floor(Math.random() * allChars.length)];
+                passwordBox.value = password;
+
+
+
+            }
+        }
+         function copyPassword(){
+            // passwordBox.select();
+            // document.execCommand("copy");
+            navigator.clipboard.writeText(passwordBox.value)
+        .then(() => alert("Password copied!"))
+        .catch(err => console.error("Copy failed:", err));
+        }
+        document.querySelector(".password").addEventListener ("click",createPassword);
+        document.getElementById("copyicon").addEventListener ("click",copyPassword);
+
+
+
+      </script>
+    
+</body>
+</html>
